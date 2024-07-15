@@ -10,7 +10,6 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
-  
 
 body {
     background-color: var(--azul);
@@ -33,28 +32,16 @@ h1, h2 {
     text-align: center;
     color: var(--blanco);
     padding: 5rem;
-
 }
 .caja-curso h1 {
     margin: 0;
 }
-.caja-curso p {
-    font-size: 2.4rem;
-}
-.caja-curso a {
-    font-size: 2.4rem;
-    padding: 2rem;
-    display: inline-block;
-    text-decoration: none;
-    color: var(--blanco);
-    padding: 0;
-}
-
 
 .contenedor {
     max-width: 120rem;
     margin: 0 auto;
 }
+
 .box {
     background-color: var(--naranja);
     color: var(--blanco);
@@ -76,25 +63,24 @@ h1, h2 {
 
 .d-flex{
     display: flex;
-    /* flex-direction: row;  valor por defecto  al colocar display:flex;*/
+    flex-direction: row;  /*valor por defecto  al colocar display:flex;*/
 }
 
 /** 2- Flex Direction **/
 
 .d-flex-2{
     display: flex;      
-    flex-direction: column; /* flex-direction: row, column*/
+    flex-direction: column; /* flex-direction: row, column, row-reverse, column-reverse*/
 }
 
 /** 3- Justify Content (Dirección Row) **/
 .d-flex-3{
     display: flex;
-    /* justify-content: flex-start; valor defauld */
     justify-content: flex-end; /* center, flex-start, flex-end, space-between, space-around, space-evenly */
+     /* justify-content: flex-start; valor defauld */
 }
 
 /** 4- Justify Content (Dirección Column)**/ 
-
 .d-flex-4{
     display: flex;
     flex-direction: column;
@@ -116,7 +102,7 @@ h1, h2 {
 }
 
 /** 6- Align Items (Dirección Columna) **/
-/* cuando es fila justify-contend y align-items funcionan de esta manera */
+/* cuando es columna justify-contend y align-items funcionan de esta manera */
 /* justify-content servira para alinear verticalmente */
 /* align-items servira para alinear horizontalmente */
 .d-flex-6{
@@ -124,8 +110,7 @@ h1, h2 {
     flex-direction: column; /* align-items es para alinear verticalmente*/
     height: 800px;
     justify-content: center;
-    align-items: flex-end;
-    /* center, flex-start, flex-end, stretch, baseline */
+    align-items: flex-end; /* center, flex-start, flex-end, stretch, baseline */
 }
 
 /** 7 Align Items y JustifyContent **/
@@ -143,15 +128,18 @@ h1, h2 {
 .d-flex-8{
     display: flex;
 }
+/* flex basis es una propiedad de los hijos del elemento padre de flex-box*/
 .d-flex-8 .box{
-    flex-basis: 33.33%;
-    flex-basis: 200px;
+    flex-basis: 33.33%; /* el valor del ancho de cada elemento dentro del flex-box*/
+    flex-basis: 200px; /* el elemento puede estirarse si no tiene espacio suficiente*/
 }
 
-/** 9 **/
+/** 9 Gap y Calc**/
 .d-flex-9{
     display: flex;
-    justify-content: space-between;                                                                   
+    /*gap: 1rem;*/ /*podemos usar esta propiedad o justify-content para dar espacio entre los elementos*/
+    justify-content: space-between;     
+                                                        
 }
 
 .d-flex-9 .box:nth-child(1){
@@ -163,10 +151,10 @@ h1, h2 {
     flex-basis:calc(25% - 1rem);                                                                                   
 }
 
-/* 10 */
+/* 10 Flex Wrap*/
 .d-flex-10{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;/*para que no se desborden los elementos en el flexbox*/
     gap: 1rem;
     justify-content: center;
 }
@@ -175,14 +163,13 @@ h1, h2 {
     flex-basis: 33.33% - 1rem;
 }
 
-/* 11 */
-
+/* 11 Flex Grow */
 .d-flex-11{
     display: flex;
 }
 
 .d-flex-11 .box:nth-child(1){
-    flex-grow: 2;
+    flex-grow: 2;   /*proporcion de crecimiento o tamaño*/
 }
 
 .d-flex-11 .box:nth-child(2){
@@ -193,7 +180,7 @@ h1, h2 {
     flex-grow: 1;
 }
 
-/* 12 */
+/* 12 Flex Shrink*/
 .d-flex-12{
     display: flex;
 }
@@ -204,10 +191,10 @@ h1, h2 {
 }
 
 .d-flex-12 .box:nth-child(3){
-    flex-shrink: 2;
+    flex-shrink: 2; /*proporcion de decrecimiento*/
 }
 
-/* 13 */ 
+/* 13 Flex Shorthand*/ 
 
 .d-flex-13{
     display: flex;
@@ -215,9 +202,10 @@ h1, h2 {
 }
 
 .d-flex-13 .box{
-    /*flex-grow: 1;
+    /*flex-grow: 0;
     flex-shrink: 0;
     flex-basis: calc(33.3% - 1rem);*/
+    /*la propiedad flex equivale a estas 3 propiedades en ese orden.*/
 
     flex: 0 0 calc(33.33% - 1rem);
 }
